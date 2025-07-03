@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #000444;
+}
+
+input,
+button {
+  font-size: inherit;
+  display: block;
+  border: none;
+  outline: none;
+  padding: min(2vw, 0.75rem);
+  border-radius: 0.25rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+}
+
+input,
+svg,
+button {
+  transition: filter 0.3s ease-in-out;
+}
+
+input[type="text"]:hover,
+button:hover,
+svg:hover {
+  filter: brightness(1.2);
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.App {
+  border: 1px solid lightgray;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 80vw;
+  max-width: 700px;
+  min-width: 320px;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 95vh;
+}
+
+.App form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid lightgray;
+  border-radius: 0.5rem;
+  padding: min(2vw, 1rem);
+}
+
+.App form input {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.App form button {
+  padding-inline: min(7vw, 2rem);
+  cursor: pointer;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rebeccapurple;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  gap: 1rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+}
+
+.scroll {
+  flex-grow: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.todo-item input[type='checkbox'] {
+  min-height: min(2rem, 6vw, 2.5rem);
+  min-width: min(2rem, 6vw, 2.5rem);
+}
+
+.todo-item button {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.todo-item svg {
+  color: white;
+}
+
+.loading {
+  color: white;
+  margin: auto;
+  animation: rotate 1s linear 0s infinite;
+  font-size: 2rem;
+}
+
+.error {
+  color: red;
+  margin: auto;
+  font-family: sans-serif, Arial;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 600;
+  animation: bloom 0.75s linear 0s infinite alternate;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: darkgray;
+}
+
+.status {
+  font-size: 1.5rem;
+  color: white;
+  margin: auto;
+}
+
+article:has(.completed) button {
+  background-color: hsl(0, 83%, 49%);
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes bloom {
+  0% {
+    filter: brightness(0.5);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .App,
+  .App form {
+    border: none;
+  }
+
+  .App {
+    box-shadow: 0 1px 3px #fff;
+  }
+}

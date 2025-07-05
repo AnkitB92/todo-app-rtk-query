@@ -1,13 +1,12 @@
-import { useAddTodoMutation, useGetTodosQuery } from "../api/apiSlice";
+import { useAddTodoMutation } from "../api/apiSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 
-const AddTodo = () => {
+const AddTodo = ({ data }) => {
   const [newTodo, setNewTodo] = useState('');
   const [addTodo] = useAddTodoMutation();
-  const { data } = useGetTodosQuery();
 
   const handleSubmit = (e) => {
     e.preventDefault();

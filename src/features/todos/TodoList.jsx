@@ -25,7 +25,7 @@ const TodoList = () => {
 
   return (
     <main className="App">
-      <AddTodo />
+      <AddTodo data={data} />
       {content}
     </main>
   )
